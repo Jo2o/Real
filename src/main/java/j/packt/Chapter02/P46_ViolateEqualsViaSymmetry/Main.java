@@ -1,7 +1,7 @@
 package j.packt.Chapter02.P46_ViolateEqualsViaSymmetry;
 
-import java.packt.Chapter02.P46_ViolateEqualsViaSymmetry.bad.JumpJet;
-import java.packt.Chapter02.P46_ViolateEqualsViaSymmetry.bad.Vehicle;
+import j.packt.Chapter02.P46_ViolateEqualsViaSymmetry.bad.JumpJet;
+import j.packt.Chapter02.P46_ViolateEqualsViaSymmetry.bad.Vehicle;
 
 public class Main {
 
@@ -17,10 +17,10 @@ public class Main {
         System.out.println();
                 
         // good
-        java.packt.Chapter02.P46_ViolateEqualsViaSymmetry.good.Vehicle vGood =
-                new java.packt.Chapter02.P46_ViolateEqualsViaSymmetry.good.Vehicle("air", 1967);
-        java.packt.Chapter02.P46_ViolateEqualsViaSymmetry.good.JumpJet jjGood =
-                new java.packt.Chapter02.P46_ViolateEqualsViaSymmetry.good.JumpJet("air", 1967, "Harrier");
+        j.packt.Chapter02.P46_ViolateEqualsViaSymmetry.good.Vehicle vGood =
+                new j.packt.Chapter02.P46_ViolateEqualsViaSymmetry.good.Vehicle("air", 1967);
+        j.packt.Chapter02.P46_ViolateEqualsViaSymmetry.good.JumpJet jjGood =
+                new j.packt.Chapter02.P46_ViolateEqualsViaSymmetry.good.JumpJet("air", 1967, "Harrier");
 
         System.out.println("jjGood equal vGood: " + jjGood.equals(vGood));
         System.out.println("vGood equal jjGood: " + vGood.equals(jjGood)); 

@@ -1,6 +1,6 @@
 package j.packt.Chapter07.P164_InspectPackagesInModules.org.player.classes.com.members;
 
-import java.packt.Chapter07.P164_InspectPackagesInModules.src.org.tournament.classes.com.management.Manager;
+import j.packt.Chapter07.P164_InspectPackagesInModules.org.tournament.classes.com.management.Manager;
 
 import java.util.Set;
 
