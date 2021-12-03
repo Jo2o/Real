@@ -2,18 +2,20 @@ package functional.packt.handson;
 
 import lombok.extern.slf4j.Slf4j;
 
-import static java.util.stream.Collectors.groupingBy;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
-public class MaxWithComparator {
+public class Sort {
 
     public static void main(String[] args) {
 
-        Employee max = Employee.createSampleList()
+        List<Employee> sorted = Employee.createSampleList()
                 .stream()
-                .max((e1, e2) -> e1.getSalary() - e2.getSalary())
-                .orElse(Employee.builder().build());
+                .sorted(Comparator.comparing(Employee::getName)) // KEY EXTRACTOR ... (e1, e2) -> e1.getName().compareTo(e2.getName())
+                .collect(Collectors.toUnmodifiableList());
 
-        log.info(max.toString());
+        log.info(sorted.toString());
     }
 }

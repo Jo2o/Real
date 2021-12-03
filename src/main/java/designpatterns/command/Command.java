@@ -1,2 +1,8 @@
-package designpatterns.command;public interface Command {
+package designpatterns.command;
+
+@FunctionalInterface
+public interface Command {
+
+    void execute();
+
 }
