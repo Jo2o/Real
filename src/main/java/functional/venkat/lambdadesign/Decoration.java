@@ -14,9 +14,7 @@ public class Decoration {   // multiple delegates - chain them to add behavior
     public static void main(String[] args) {
         Camera camera = new Camera();
 
-        Consumer<String> printCaptured = filterInfo -> {
-            log.info("with {}: {}", filterInfo, camera.capture(new Color(200, 100, 200)));
-        };
+        Consumer<String> printCaptured = filterInfo -> log.info("with {}: {}", filterInfo, camera.capture(new Color(200, 100, 200)));
         printCaptured.accept("NoFilter");
 
         camera.setFilters(Color::brighter);
