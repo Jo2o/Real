@@ -1,4 +1,4 @@
-package functional.venkat.resourcesandlocks;
+package functional.venkat.resources;
 
 import lombok.SneakyThrows;
 
