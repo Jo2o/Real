@@ -1,4 +1,4 @@
-package functional.venkat.resources;
+package functional.venkat.workwithresources;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        /* Classical approach. */
+        /* Classic approach. */
         MyFileWriter myFileWriter = new MyFileWriter("src/main/java/functional/venkat/resourcesandlocks/peekaboo1.txt");
         try {
             myFileWriter.writeStuff("peek-a-boo-1");

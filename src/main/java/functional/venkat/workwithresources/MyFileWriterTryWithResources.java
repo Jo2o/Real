@@ -1,15 +1,17 @@
-package functional.venkat.resources;
+package functional.venkat.workwithresources;
 
 import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.FileWriter;
 
-public class MyFileWriter {
+@Slf4j
+public class MyFileWriterTryWithResources implements AutoCloseable {
 
     private final FileWriter fileWriter;
 
     @SneakyThrows
-    public MyFileWriter(final String fileName) {
+    public MyFileWriterTryWithResources(final String fileName) {
         fileWriter = new FileWriter(fileName);
     }
 
@@ -18,8 +20,10 @@ public class MyFileWriter {
         fileWriter.write(message);
     }
 
+    @Override
     @SneakyThrows
-    public void finish() {
+    public void close() {
+        log.info("AutoCloseable auto closing resource...");
         fileWriter.close();
     }
 }

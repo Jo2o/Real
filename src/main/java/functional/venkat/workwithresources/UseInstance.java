@@ -1,4 +1,4 @@
-package functional.venkat.resources;
+package functional.venkat.workwithresources;
 
 import java.io.IOException;
 
