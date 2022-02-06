@@ -9,7 +9,6 @@ public class Main {
     private static final String TEXT = "ABC";
 
     public static void main(String[] args) {
-
         System.out.println("Input text: \n" + TEXT + "\n");
 
         System.out.println("Permute and store in Set - recursive solution:");
