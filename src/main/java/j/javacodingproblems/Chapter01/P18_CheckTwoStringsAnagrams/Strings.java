@@ -11,10 +11,7 @@ public final class Strings {
     }
 
     public static boolean isAnagramV1(String str1, String str2) {
-
-        if (str1 == null || str2 == null
-                || str1.isBlank() || str2.isBlank()) {
-            // throw IllegalArgumentException
+        if (str1 == null || str2 == null || str1.isBlank() || str2.isBlank()) { // throw IllegalArgumentException
             return false;
         }
 
@@ -32,10 +29,7 @@ public final class Strings {
     }
 
     public static boolean isAnagramV2(String str1, String str2) {
-
-        if (str1 == null || str2 == null
-                || str1.isBlank() || str2.isBlank()) {
-            // throw IllegalArgumentException
+        if (str1 == null || str2 == null || str1.isBlank() || str2.isBlank()) { // throw IllegalArgumentException
             return false;
         }
 
@@ -53,7 +47,6 @@ public final class Strings {
         }
 
         for (int i = 0; i < chCounts.length; i++) {
-
             if (chCounts[i] != 0) {
                 return false;
             }
@@ -63,10 +56,7 @@ public final class Strings {
     }
 
     public static boolean isAnagramV3(String str1, String str2) {
-
-        if (str1 == null || str2 == null
-                || str1.isBlank() || str2.isBlank()) {
-            // throw IllegalArgumentException
+        if (str1 == null || str2 == null || str1.isBlank() || str2.isBlank()) { // throw IllegalArgumentException
             return false;
         }
 
@@ -79,8 +69,7 @@ public final class Strings {
 
         return Arrays.equals(
                 str1.chars().sorted().toArray(),
-                str2.chars().sorted().toArray()
-        );
+                str2.chars().sorted().toArray());
     }
 
 }
