@@ -1,4 +1,4 @@
-package j.javacodingproblems.Chapter01.P15_SortArrayOfStringsByLength.src.modern.challenge;
+package j.javacodingproblems.Chapter01.P15_SortArrayOfStringsByLength;
 
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;

@@ -1,4 +1,4 @@
-package j.javacodingproblems.Chapter01.P17_CountStringIString;
+package j.javacodingproblems.Chapter01.P17_CountStringInString;
 
 import java.time.Clock;
 import java.util.concurrent.TimeUnit;

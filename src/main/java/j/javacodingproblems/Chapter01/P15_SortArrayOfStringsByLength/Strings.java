@@ -1,4 +1,4 @@
-package j.javacodingproblems.Chapter01.P15_SortArrayOfStringsByLength.src.modern.challenge;
+package j.javacodingproblems.Chapter01.P15_SortArrayOfStringsByLength;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -14,28 +14,20 @@ public final class Strings {
     }
 
     public static void sortArrayByLengthV1(String[] strs, Sort direction) {
-
-        if (strs == null || direction == null || strs.length == 0) {
-            // or throw IllegalArgumentException
+        if (strs == null || direction == null || strs.length == 0) { // or throw IllegalArgumentException
             return;
         }
-
         if (direction.equals(Sort.ASC)) {
-            Arrays.sort(strs, (String s1, String s2)
-                    -> Integer.compare(s1.length(), s2.length()));
+            Arrays.sort(strs, (String s1, String s2) -> Integer.compare(s1.length(), s2.length()));
         } else {
-            Arrays.sort(strs, (String s1, String s2)
-                    -> (-1) * Integer.compare(s1.length(), s2.length()));
+            Arrays.sort(strs, (String s1, String s2) -> (-1) * Integer.compare(s1.length(), s2.length()));
         }
     }
 
     public static void sortArrayByLengthV2(String[] strs, Sort direction) {
-
-        if (strs == null || direction == null || strs.length == 0) {
-            // or throw IllegalArgumentException
+        if (strs == null || direction == null || strs.length == 0) { // or throw IllegalArgumentException
             return;
         }
-
         if (direction.equals(Sort.ASC)) {
             Arrays.sort(strs, Comparator.comparingInt(String::length));
         } else {
@@ -44,9 +36,7 @@ public final class Strings {
     }
 
     public static String[] sortArrayByLengthV3(String[] strs, Sort direction) {
-
-        if (strs == null || direction == null || strs.length == 0) {
-            // or throw IllegalArgumentException
+        if (strs == null || direction == null || strs.length == 0) { // or throw IllegalArgumentException
             return new String[0];
         }
 
@@ -60,5 +50,4 @@ public final class Strings {
                     .toArray(String[]::new);
         }
     }
-
 }

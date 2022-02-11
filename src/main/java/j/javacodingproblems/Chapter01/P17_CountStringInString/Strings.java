@@ -1,4 +1,4 @@
-package j.javacodingproblems.Chapter01.P17_CountStringIString;
+package j.javacodingproblems.Chapter01.P17_CountStringInString;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -10,11 +10,9 @@ public final class Strings {
     }
 
     public static int countStringInStringV1(String string, String toFind) {
-
         if (string == null || toFind == null) {
             throw new IllegalArgumentException("The given strings cannot be null");
         }
-
         if (string.isBlank() || toFind.isBlank()) {
             return 0;
         }
@@ -32,24 +30,19 @@ public final class Strings {
     }
 
     public static int countStringInStringV2(String string, String toFind) {
-
         if (string == null || toFind == null) {
             throw new IllegalArgumentException("The given strings cannot be null");
         }
-
         if (string.isBlank() || toFind.isBlank()) {
             return 0;
         }
-
         return string.split(Pattern.quote(toFind), -1).length - 1;
     }
 
     public static int countStringInStringV3(String string, String toFind) {
-
         if (string == null || toFind == null) {
             throw new IllegalArgumentException("The given strings cannot be null");
         }
-
         if (string.isBlank() || toFind.isBlank()) {
             return 0;
         }
