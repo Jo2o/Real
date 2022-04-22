@@ -12,7 +12,7 @@ public class Main {
     // Ӝ -> Unicode: \u04DC, Code Point: 1244
     // 💕 -> Unicode: \uD83D\uDC95, Code Point: 128149
     // 🎼 -> \uD83C\uDFBC, Code Point: 127932
-    // 😍 ->\uD83D\uDE0D, Code Point: 128525
+    // 😍 -> \uD83D\uDE0D, Code Point: 128525
     private static final String TEXT_CP = TEXT + "😍 I love 💕 you Ӝ so much 💕 😍 🎼🎼🎼!";
 
     public static void main(String[] args) {
