@@ -1,5 +1,6 @@
 package json.jackson;
 
+import java.util.List;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -7,6 +8,6 @@ import lombok.Getter;
 @Builder
 public class CarDataWrapper {
     
-    private final Car car;
+    private final List<Car> cars;
     
 }

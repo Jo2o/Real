@@ -1,4 +1,4 @@
-package algorithms.permutations;
+package algo.permutations;
 
 import lombok.extern.slf4j.Slf4j;
 
