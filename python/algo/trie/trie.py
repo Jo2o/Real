@@ -1,6 +1,6 @@
 class Trie:
     def __init__(self):
-        self.child = {}
+        self.child = {}   # using dictionaries within dictionaries and keys are letters
 
     def insert(self, word):
         current = self.child
