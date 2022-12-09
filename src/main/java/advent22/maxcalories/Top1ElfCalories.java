@@ -33,9 +33,9 @@ public class Top1ElfCalories {
                         currentCalories.set(currentCalories.get() + Integer.parseInt(line));
                     }
                 });
-            } catch (IOException e) {
-                log.error("Error while processing input file", e);
-            }
+        } catch (IOException e) {
+            log.error("Error while processing input file", e);
+        }
 
         log.info("MaxCalories: {}", maxCalories.get());
     }
