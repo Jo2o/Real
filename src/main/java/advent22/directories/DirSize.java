@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.stream.Collectors;
 import lombok.extern.slf4j.Slf4j;
 
 
@@ -23,12 +25,16 @@ import lombok.extern.slf4j.Slf4j;
 public class DirSize {
 
     private static final String INPUT_PATH = "src/main/java/advent22/directories/in.txt";
-//    private static final String INPUT_PATH = "src/main/java/advent22/directories/test.txt";
+    private static final String PATH_SEPARATOR = "/";
     private static boolean AFTER_LS = false;
 
     public static void main(String[] args) throws IOException {
 
-        Node root = Node.builder().name("/").build();
+        Node root = Node.builder()
+            .name("/")
+            .path("/")
+            .build();
+
         Node currentNode = root;
 
         try (BufferedReader br = Files.newBufferedReader(Path.of(INPUT_PATH), StandardCharsets.UTF_8)) {
@@ -49,11 +55,22 @@ public class DirSize {
 
                 } else if (line.startsWith("$ cd ")) {
                     AFTER_LS = false;
+                    String dirName = line.substring(5);
                     List<Node> result = new ArrayList<>();
-                    findNode(root, Node.builder().name(line.substring(5)).build(), result);
+                    findNode(
+                        root,
+                        Node.builder()
+                            .name(dirName)
+                            .path(currentNode.getPath() + PATH_SEPARATOR + dirName)
+                            .build(),
+                        result);
                     currentNode = result.get(0);
+
                 } else if (AFTER_LS) {
                     currentNode.addChild(nodeFromLine(line, currentNode));
+
+                } else {
+                    throw new RuntimeException("Unexpected line: " + line);
                 }
             }
         }
@@ -62,7 +79,18 @@ public class DirSize {
 
         Map<String, Integer> dirSizes = new HashMap<>();
         countDirSizes(root, dirSizes);
-        log.info("{}", dirSizes);
+        for (Entry<String, Integer> entry : dirSizes.entrySet()) {
+            log.info("{}", entry);
+        }
+
+        root.setSize(root.getChildren().stream().mapToInt(Node::getSize).sum());
+
+        int diskSpaceFree = 70000000 - root.getSize();
+        int diskSpaceNeeded = 30000000 - diskSpaceFree;
+        log.info("\nDisk space total: {}", 70000000);
+        log.info("\nDisk space occupied: {}", root.getSize());
+        log.info("\nDisk space free: {}", diskSpaceFree);
+        log.info("\nDisk space needed: {}", diskSpaceNeeded);
 
         int result = dirSizes.values().stream()
             .filter(i -> i <= 100000)
@@ -71,6 +99,13 @@ public class DirSize {
 
         log.info("Sum of dirs less than 100000 (incl.) in size: {}", result);
 
+    List<Entry<String, Integer>> resultEntriesLess =
+        dirSizes.entrySet().stream()
+            .filter(e -> e.getValue() <= diskSpaceNeeded + 10000)
+            .sorted((e1, e2) -> (-1) * Integer.compare(e1.getValue(), e2.getValue()))
+            .collect(Collectors.toList());
+
+        log.info("\nSorted dirs less than needed space: {}", resultEntriesLess);
     }
 
     private static void countDirSizes(Node node, Map<String, Integer> result) {
@@ -84,12 +119,13 @@ public class DirSize {
                 sum += child.getSize();
             } else {
                 countDirSizes(child, result);
-                Integer size = result.get(child.getName());
+                Integer size = result.get(child.getPath());
                 sum += isNull(size) ? 0 : size;
             }
         }
         if (node.getDirTreeNodeType() == DIR) {
-            result.put(node.getName(), sum);
+            result.put(node.getPath(), sum);
+            node.setSize(sum);
         }
     }
 
@@ -112,6 +148,7 @@ public class DirSize {
         if (line.startsWith("dir ")) {
             return Node.builder()
                 .name(line.substring(4))
+                .path(parent.getPath() + PATH_SEPARATOR + line.substring(4))
                 .parent(parent)
                 .dirTreeNodeType(DIR)
                 .build();
@@ -119,6 +156,7 @@ public class DirSize {
         String[] sizeName = line.split(" ", 2);
         return Node.builder()
             .name(sizeName[1])
+            .path(parent.getPath() + PATH_SEPARATOR + sizeName[1])
             .size(parseInt(sizeName[0]))
             .parent(parent)
             .dirTreeNodeType(FILE)

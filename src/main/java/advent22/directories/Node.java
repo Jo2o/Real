@@ -46,7 +46,7 @@ public class Node {
         if (!other.canEqual(this)) {
             return false;
         }
-        return Objects.equals(this.getName(), other.getName());
+        return Objects.equals(this.getPath(), other.getPath());
     }
 
     protected boolean canEqual(final Object other) {
@@ -56,13 +56,13 @@ public class Node {
     public int hashCode() {
         final int PRIME = 59;
         int result = 1;
-        final Object name = this.getName();
-        result = result * PRIME + (name == null ? 43 : name.hashCode());
+        final Object path = this.getPath();
+        result = result * PRIME + (path == null ? 43 : path.hashCode());
         return result;
     }
 
     @Override
     public String toString() {
-        return name;
+        return path;
     }
 }
