@@ -12,12 +12,10 @@ public final class Doubles {
     }
 
     public static double read(ScannerDoubleFunction snf) throws IOException {
-
         if (snf == null) {
             throw new IllegalArgumentException("Lambda cannot be null");
         }
-
-        try ( Scanner scanner = new Scanner(Path.of("doubles.txt"), StandardCharsets.UTF_8)) {
+        try (Scanner scanner = new Scanner(Path.of("src/main/java/j/problems/ch08/P168_ExecuteAroundPattern/doubles.txt"), StandardCharsets.UTF_8)) {
             return snf.readDouble(scanner);
         }
     }

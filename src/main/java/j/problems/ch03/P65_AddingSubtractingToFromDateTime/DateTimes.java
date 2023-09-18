@@ -10,7 +10,6 @@ public final class DateTimes {
     }
 
     public static Date addOrSubtractYears(Date date, int years) {
-
         if (date == null) {
             throw new IllegalArgumentException("Date cannot be null");
         }
@@ -23,7 +22,6 @@ public final class DateTimes {
     }
 
     public static Date addOrSubtractHours(Date date, int hours) {
-
         if (date == null) {
             throw new IllegalArgumentException("Date cannot be null");
         }

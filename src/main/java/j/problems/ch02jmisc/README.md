@@ -1,0 +1,2 @@
+# Objects, immutability and switch expressions
+This chapter includes 18 j.problems that involves objects, immutability and switch expressions. The chapter starts with several j.problems about dealing with null references. It continues with j.problems regarding checking indexes, **equals()** and **hashCode()**, and immutability (e.g., writing immutable classes, passing/returning mutable objects from immutable classes). The last part of the chapter deals with cloning objects and JDK 12 switch expressions. 

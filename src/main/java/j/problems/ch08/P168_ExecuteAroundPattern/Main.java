@@ -7,10 +7,10 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        double singleDouble = Doubles.read((Scanner sc) -> getFirst(sc));
+        double singleDouble = Doubles.read(Main::getFirst);
         System.out.println("Single double: " + singleDouble);
 
-        double sumAllDoubles = Doubles.read((Scanner sc) -> sumAll(sc));
+        double sumAllDoubles = Doubles.read(Main::sumAll);
         System.out.println("Sum all doubles: " + sumAllDoubles);
     }
 

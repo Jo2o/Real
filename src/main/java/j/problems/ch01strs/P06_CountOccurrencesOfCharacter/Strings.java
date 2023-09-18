@@ -50,7 +50,6 @@ public final class Strings {
     }
 
     public static int countOccurrencesOfACertainCharacterVCP2(String str, String ch) {
-
         if (str == null || ch == null || str.isEmpty() || ch.isEmpty()) {
             // or throw IllegalArgumentException
             return -1;
@@ -72,12 +71,10 @@ public final class Strings {
     }
 
     public static long countOccurrencesOfACertainCharacterV3(String str, char ch) {
-
         if (str == null || str.isEmpty()) {
             // or throw IllegalArgumentException
             return -1;
         }
-
         return str.chars()
                 .filter(c -> c == ch)
                 .count();
