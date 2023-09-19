@@ -66,7 +66,6 @@ public final class Strings {
                 count++;
             }
         }
-
         return count;
     }
 
