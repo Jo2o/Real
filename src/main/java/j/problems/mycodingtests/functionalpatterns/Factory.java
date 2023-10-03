@@ -1,9 +1,9 @@
 package j.problems.mycodingtests.functionalpatterns;
 
-import j.problems.ch08.P169_FactoryPattern.Cantaloupe;
-import j.problems.ch08.P169_FactoryPattern.Fruit;
-import j.problems.ch08.P169_FactoryPattern.Gac;
-import j.problems.ch08.P169_FactoryPattern.Hemi;
+import j.problems.ch08lamb1.P169_FactoryPattern.Cantaloupe;
+import j.problems.ch08lamb1.P169_FactoryPattern.Fruit;
+import j.problems.ch08lamb1.P169_FactoryPattern.Gac;
+import j.problems.ch08lamb1.P169_FactoryPattern.Hemi;
 import java.util.Map;
 import java.util.Objects;
 import java.util.function.Supplier;
